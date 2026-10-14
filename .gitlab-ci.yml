@@ -1,3 +1,29 @@
+# Análisis de Noticias mediante el trabajo de calidad del laboratorio universitario.
 include:
-  - project: "root/laboratorio-quality"
-    file: "/gitlab/quality-pipeline.yml"
+  - project: "root/laboratorio-devops"
+    ref: "main"
+    file: "/gitlab/jobs/quality.yml"
+
+stages:
+  - quality
+
+variables:
+  FRAMEWORK_HOME: "/workspace/laboratorio-devops"
+  FRAMEWORK_METADATA: "$CI_PROJECT_DIR/metadata"
+
+quality:
+  before_script:
+    - |
+      python3 - <<'PY'
+      import json
+      import os
+      from pathlib import Path
+
+      folder = Path(os.environ["FRAMEWORK_METADATA"]) / "builder"
+      folder.mkdir(parents=True, exist_ok=True)
+      plan = {
+          "project": {"name": "Noticias", "key": "FredyC-noticias"},
+          "modules": [{"workspace": os.environ["CI_PROJECT_DIR"]}],
+      }
+      (folder / "build-plan.json").write_text(json.dumps(plan), encoding="utf-8")
+      PY

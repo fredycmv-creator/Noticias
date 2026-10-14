@@ -1,19 +1,16 @@
 project:
-  name: "Pulso Noticias"
+  name: "Noticias"
+  key: "FredyC-noticias"
   version: "1.0.0"
-  description: "Blog de noticias autoadministrable en PHP con Laravel"
-stack:
-  detect: true
+  description: "Pulso Noticias: blog PHP con Laravel, CRUD, validaciones y opciones de color"
+
+authors:
+  - "Coronacion Meza Fredy"
+
+quality:
+  sonar: true
+
 academic:
   course: "Pruebas y Calidad de Software"
-  evaluation_name: "Evaluación del Parcial"
-  partial_weight_percentage: 80
-  evaluator:
-    name: "Dr. Maglioni Arana Caparachin"
-    # COMPLETAR con el correo institucional real ANTES del primer push.
-    email: "PENDIENTE_CORREO_DOCENTE"
-    role: "Docente Evaluador"
-  members:
-    - name: "Coronacion Meza Fredy"
-      code: "76083502"
-      email: "76083502@continental.edu.pe"
+  student_code: "76083502"
+  environment: "Laboratorio universitario 192.168.0.200"
