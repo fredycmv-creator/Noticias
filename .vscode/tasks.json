@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Blog: preparar entorno y demo",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-File",
+        "tools/preparar.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Blog: ejecutar todas las pruebas",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "artisan",
+        "test"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Blog: iniciar web en puerto 8020",
+      "type": "shell",
+      "command": "php",
+      "args": [
+        "artisan",
+        "serve",
+        "--host=127.0.0.1",
+        "--port=8020"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

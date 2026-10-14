@@ -1,0 +1,13 @@
+/vendor/
+/.env
+/database/*.sqlite*
+/bootstrap/cache/*.php
+/storage/**/*.log
+/reports/*.xml
+/reports/*
+!/reports/.gitignore
+/.phpunit.result.cache
+/.tools/
+/node_modules/
+/venv/
+/.venv/

@@ -1,0 +1,33 @@
+/* Cuatro paletas; los mensajes y estados conservan sus etiquetas textuales. */
+:root{--ink:#172c3c;--muted:#52616d;--paper:#f7f6f2;--white:#ffffff;--accent:#b43e20;--line:#d4d9d8;--error:#a51e24;--focus:#a63e09;--field:#87949b;--top:#172c3c;--top-text:#ffffff;--button:#172c3c;--button-text:#ffffff;--hover:#2d475b;--marker1:#e4ebe7;--marker2:#eee3d4;--marker3:#e2e7ee;--error-bg:#fff0f0;--success:#205139;--success-bg:#e7f3eb;--draft:#684900;--draft-bg:#f8eccd;--published:#205139;--published-bg:#def0e3;--danger:#9f2632;--danger-text:#ffffff;--head:#e6ecec;}
+html[data-theme="dark"]{--ink:#f0f4f8;--muted:#b6c3d1;--paper:#111b27;--white:#1c2a38;--accent:#ffbf7c;--line:#8496a8;--error:#ffd0a3;--focus:#ffd166;--field:#97a9b8;--top:#08111c;--top-text:#ffffff;--button:#b9d9ff;--button-text:#122334;--hover:#d6e8ff;--marker1:#203e56;--marker2:#423622;--marker3:#342d4a;--error-bg:#3c2b25;--success:#c1def5;--success-bg:#19364c;--draft:#ffe0a3;--draft-bg:#473b1e;--published:#bce6ff;--published-bg:#163b4b;--danger:#713d25;--danger-text:#ffffff;--head:#263a4d;}
+html[data-theme="red-green"]{--ink:#142b43;--muted:#40566d;--paper:#f4f7fb;--white:#ffffff;--accent:#754000;--line:#bdc9d5;--error:#754000;--focus:#103e70;--field:#4b637a;--top:#102f50;--top-text:#ffffff;--button:#153f6e;--button-text:#ffffff;--hover:#082747;--marker1:#dceaff;--marker2:#fff0d7;--marker3:#e7eef7;--error-bg:#fff0d7;--success:#153f6e;--success-bg:#e4efff;--draft:#754000;--draft-bg:#fff0d7;--published:#153f6e;--published-bg:#e4efff;--danger:#153f6e;--danger-text:#ffffff;--head:#dce8f5;}
+html[data-theme="blue-yellow"]{--ink:#2d2140;--muted:#554564;--paper:#f6f5fa;--white:#ffffff;--accent:#66317a;--line:#c8bfd1;--error:#66317a;--focus:#602576;--field:#766282;--top:#332043;--top-text:#ffffff;--button:#4e2a64;--button-text:#ffffff;--hover:#341b43;--marker1:#e6d9ef;--marker2:#d5eee5;--marker3:#e6e0ed;--error-bg:#f2e4f7;--success:#174c3c;--success-bg:#e0f2e9;--draft:#66317a;--draft-bg:#f2e4f7;--published:#174c3c;--published-bg:#e0f2e9;--danger:#4e2a64;--danger-text:#ffffff;--head:#e8dfed;}
+
+html[data-theme="light"],html[data-theme="red-green"],html[data-theme="blue-yellow"]{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+.topline{background:var(--top);color:var(--top-text)}
+input,select,textarea{background:var(--white);border-color:var(--field);color:var(--ink)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
+.button{background:var(--button);border-color:var(--button);color:var(--button-text)}
+.button:hover{background:var(--hover);border-color:var(--hover);color:var(--button-text)}
+.danger,.danger:hover{background:var(--danger);border-color:var(--danger);color:var(--danger-text)}
+.card-marker{background:var(--marker1)}
+.news-card:nth-child(3n+2) .card-marker{background:var(--marker2)}
+.news-card:nth-child(3n) .card-marker{background:var(--marker3)}
+.card-marker span:last-child,.pagination>span:not([aria-current]){color:var(--muted)}
+.error-summary{background:var(--error-bg);border-color:var(--error)}
+.error-summary .error,.error{color:var(--error)}
+.success{background:var(--success-bg);border-color:var(--success);color:var(--ink)}
+.published{background:var(--published-bg);color:var(--published)}
+.draft{background:var(--draft-bg);color:var(--draft)}
+thead{background:var(--head)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:var(--focus)}
+.appearance-bar{border-bottom:1px solid var(--line);padding-block:14px}
+.appearance-form{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin:0}
+.appearance-form label{margin:0;white-space:nowrap}
+.appearance-form select{width:auto;max-width:100%;min-width:210px}
+.appearance-form .button{min-height:46px;padding:8px 16px}
+.appearance-help{font-size:12px;color:var(--muted);margin:8px 0 0}
+@media(max-width:560px){.appearance-form label{width:100%}.appearance-form select{flex:1;min-width:0}.appearance-form .button{padding-inline:12px}}
+@media(forced-colors:active){.button,input,select,textarea{border:2px solid ButtonText}a{text-decoration:underline}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid Highlight}}
