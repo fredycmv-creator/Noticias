@@ -13,17 +13,9 @@ variables:
 
 quality:
   before_script:
+    - python3 tools/prepare_sonar_university.py
+  script:
     - |
-      python3 - <<'PY'
-      import json
-      import os
-      from pathlib import Path
-
-      folder = Path(os.environ["FRAMEWORK_METADATA"]) / "builder"
-      folder.mkdir(parents=True, exist_ok=True)
-      plan = {
-          "project": {"name": "Noticias", "key": "FredyC-noticias"},
-          "modules": [{"workspace": os.environ["CI_PROJECT_DIR"]}],
-      }
-      (folder / "build-plan.json").write_text(json.dumps(plan), encoding="utf-8")
-      PY
+      set -euo pipefail
+      bash "${FRAMEWORK_HOME}/core/engines/quality.sh" | tee "${FRAMEWORK_METADATA}/quality.log"
+      grep -Fq 'SonarScanner analysis completed successfully.' "${FRAMEWORK_METADATA}/quality.log"
